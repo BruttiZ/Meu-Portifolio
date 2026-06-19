@@ -395,13 +395,15 @@ function Header({
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
         <a
           href="#home"
-          className="group flex items-center gap-2 font-black tracking-tight"
+          className="group flex items-center gap-3 font-black tracking-tight"
         >
-          <span className="grid h-9 w-9 place-items-center rounded-lg bg-cyan-300 text-black shadow-neon transition group-hover:scale-105">
-            VB
+          <span className="relative grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-cyanGlow via-violetGlow to-plasma p-[2px] shadow-neon transition group-hover:scale-105">
+            <span className="grid h-full w-full place-items-center rounded-[10px] bg-[#0d1117] text-sm font-black tracking-tight text-cyan-50">
+              VB
+            </span>
           </span>
           <span className="hidden text-sm uppercase tracking-[0.22em] text-slate-200 sm:inline">
-            Victor Calegari Brutti
+            Victor Brutti
           </span>
         </a>
 
