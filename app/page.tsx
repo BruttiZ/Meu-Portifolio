@@ -111,14 +111,14 @@ const timeline = [
     ]
   },
   {
-    title: "Auxiliar Administrativo",
-    company: "ENORSUL Serviços em Saneamento",
-    period: "Jan/2024 - Jun/2025",
+    title: "Analista de Desenvolvimento",
+    company: "Aegea Corsan",
+    period: "Nível Analista | Contrato PJ",
     items: [
-      "Gestão e análise de dados operacionais.",
-      "Controle de indicadores de frota e consumo.",
-      "Organização de informações administrativas e suporte documental.",
-      "Desenvolvimento de visão analítica aplicada a processos empresariais."
+      "Análise e desenvolvimento de sistemas com levantamento de requisitos junto aos usuários.",
+      "Proposição de soluções para melhoria de processos e entrega de valor ao negócio.",
+      "Desenvolvimento, integração, manutenção e evolução de funcionalidades com PHP e bancos de dados.",
+      "Implementação de dashboards e otimização de consultas com foco em desempenho e usabilidade."
     ]
   }
 ];
