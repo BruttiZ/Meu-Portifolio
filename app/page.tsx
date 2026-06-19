@@ -94,7 +94,6 @@ const projects = [
       "API modular para autenticação, eventos, convidados, RSVP, dashboard, analytics, orçamento, presentes e lembretes de e-mail, com rotas protegidas por Bearer token.",
     metric: "Backend Go",
     repo: "https://github.com/BruttiZ/invitely-api",
-    demo: "#contato",
     visual: "REST API, auth, tenants, analytics e operação de eventos",
   },
 ];
@@ -940,13 +939,15 @@ export default function Home() {
                     <Github size={17} />
                     GitHub
                   </a>
-                  <a
-                    href={project.demo}
-                    className="inline-flex items-center gap-2 rounded-xl border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm font-bold text-cyan-50 transition hover:scale-105 hover:shadow-neon"
-                  >
-                    <ExternalLink size={17} />
-                    Ver demo
-                  </a>
+                  {"demo" in project && project.demo ? (
+                    <a
+                      href={project.demo}
+                      className="inline-flex items-center gap-2 rounded-xl border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm font-bold text-cyan-50 transition hover:scale-105 hover:shadow-neon"
+                    >
+                      <ExternalLink size={17} />
+                      Ver demo
+                    </a>
+                  ) : null}
                 </div>
               </div>
             </motion.article>

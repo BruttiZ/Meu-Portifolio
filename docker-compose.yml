@@ -15,8 +15,7 @@ services:
     volumes:
       - .:/app
       - portfolio_node_modules:/app/node_modules
-      - portfolio_next:/app/.next
+      - /app/.next
 
 volumes:
   portfolio_node_modules:
-  portfolio_next:
