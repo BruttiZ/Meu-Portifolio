@@ -1,6 +1,6 @@
 # Victor Brutti Portfolio
 
-Portfólio pessoal futurista em Next.js, TypeScript, Tailwind CSS, Framer Motion, Lucide Icons e React Icons.
+Portfólio pessoal em Next.js, TypeScript, Tailwind CSS, Framer Motion, Lucide Icons e React Icons.
 
 ## Rodar local
 
