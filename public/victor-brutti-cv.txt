@@ -1,0 +1,25 @@
+Victor Brutti
+Full Stack Developer (PHP | Go | React)
+
+Stack principal:
+- Go
+- PHP / Laravel
+- JavaScript / TypeScript
+- React / Next.js
+- Docker
+- PostgreSQL / MySQL
+
+Perfil:
+Desenvolvedor Full Stack com foco em backend robusto, sistemas escaláveis,
+interfaces modernas e projetos reais.
+
+Projetos:
+- Invitely / Convite Eventos: plataforma SaaS-ready para eventos, convites digitais,
+  RSVP, check-in por QR Code e dashboard operacional.
+- Invitely API: API em Go para auth, eventos, convidados, RSVP, dashboard, analytics,
+  orçamento, presentes e lembretes.
+
+Links:
+GitHub: https://github.com/BruttiZ
+LinkedIn: https://www.linkedin.com/in/victor-brutti-1459a6254/
+Email: vbrutti02@gmail.com
