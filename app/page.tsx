@@ -28,9 +28,13 @@ import {
   SiGit,
   SiGo,
   SiJavascript,
+  SiJquery,
+  SiLaravel,
   SiMysql,
   SiPhp,
   SiReact,
+  SiCodeigniter,
+  SiSwagger,
   SiTypescript
 } from "react-icons/si";
 
@@ -47,6 +51,7 @@ const navItems = [
   ["Sobre", "#sobre"],
   ["Skills", "#skills"],
   ["Experiência", "#experiencia"],
+  ["Formação", "#formacao"],
   ["Projetos", "#projetos"],
   ["Contato", "#contato"]
 ];
@@ -54,12 +59,17 @@ const navItems = [
 const skills = [
   { name: "Go", icon: SiGo, color: "#00ADD8" },
   { name: "PHP", icon: SiPhp, color: "#777BB4" },
+  { name: "Laravel", icon: SiLaravel, color: "#FF2D20" },
+  { name: "CodeIgniter", icon: SiCodeigniter, color: "#EF4223" },
   { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
   { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
   { name: "React", icon: SiReact, color: "#61DAFB" },
+  { name: "jQuery / AJAX", icon: SiJquery, color: "#0769AD" },
   { name: "HTML / CSS", icon: Code2, color: "#22d3ee" },
   { name: "Bootstrap", icon: SiBootstrap, color: "#7952B3" },
   { name: "MySQL", icon: SiMysql, color: "#4479A1" },
+  { name: "Oracle / SQL", icon: Code2, color: "#F80000" },
+  { name: "Swagger / OpenAPI", icon: SiSwagger, color: "#85EA2D" },
   { name: "Docker", icon: SiDocker, color: "#2496ED" },
   { name: "Git / GitHub", icon: SiGit, color: "#F05032" },
   { name: "VSCode", icon: Code2, color: "#007ACC" }
@@ -90,24 +100,62 @@ const projects = [
 
 const timeline = [
   {
-    title: "Full Stack Developer",
-    company: "Widitec / Projetos internos",
-    period: "Atual",
+    title: "Desenvolvedor Full Stack Júnior",
+    company: "Qualyagro - Panambi/RS",
+    period: "Junho/2025 - Atual",
     items: [
-      "Desenvolvimento de sistemas internos com foco em fluxo real de negócio.",
-      "Criação de APIs em PHP e Go para automação e integração de dados.",
-      "Integração com bancos de dados e melhoria de performance em rotas críticas."
+      "Desenvolvimento e manutenção de sistemas web corporativos com PHP, Laravel, CodeIgniter e JavaScript.",
+      "Criação, consumo e documentação de APIs REST com Swagger/OpenAPI.",
+      "Integrações entre sistemas internos e externos, interfaces responsivas com Bootstrap, AJAX e jQuery.",
+      "Uso de Docker, Git, GitHub/Gitea, MySQL e Oracle em ambientes corporativos."
     ]
   },
   {
-    title: "Construção de produtos próprios",
-    company: "Invitely",
-    period: "Evolução contínua",
+    title: "Auxiliar Administrativo",
+    company: "ENORSUL Serviços em Saneamento",
+    period: "Jan/2024 - Jun/2025",
     items: [
-      "Arquitetura full stack com Laravel, React, TypeScript e Docker.",
-      "API Go complementar com módulos independentes e documentação Swagger.",
-      "Experiência prática em deploy, autenticação, multi-tenancy e UX operacional."
+      "Gestão e análise de dados operacionais.",
+      "Controle de indicadores de frota e consumo.",
+      "Organização de informações administrativas e suporte documental.",
+      "Desenvolvimento de visão analítica aplicada a processos empresariais."
     ]
+  }
+];
+
+const education = [
+  {
+    title: "Engenharia de Software",
+    place: "UNOPAR",
+    period: "2023 - Atual",
+    status: "6º semestre"
+  },
+  {
+    title: "Técnico em Mecatrônica",
+    place: "SENAI",
+    period: "2021 - 2023",
+    status: "Concluído"
+  }
+];
+
+const corporateProjects = [
+  {
+    title: "Sistema de Configuração SMTP Corporativo",
+    stack: "PHP, JavaScript, AJAX, MySQL, Bootstrap, Sodium",
+    description:
+      "Módulo para configuração e gerenciamento de serviços de envio de e-mails, com armazenamento seguro de credenciais SMTP e testes automatizados de conexão e envio."
+  },
+  {
+    title: "APIs REST e Integrações Corporativas",
+    stack: "PHP, Java, Swagger, REST API",
+    description:
+      "Criação e documentação de endpoints REST, integração entre sistemas corporativos, validação de requisições e padronização técnica com OpenAPI/Swagger."
+  },
+  {
+    title: "Ambientes Docker para Aplicações Web",
+    stack: "Docker, Linux, PHP, MySQL",
+    description:
+      "Estruturação de containers para padronizar ambientes PHP e reduzir atrito em configuração local, desenvolvimento e deploy."
   }
 ];
 
@@ -424,7 +472,7 @@ function Hero() {
           </p>
           <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 md:text-lg">
             Backend forte, interfaces modernas e uma obsessão saudável por transformar ideias em sistemas reais.
-            Stack principal: Go + PHP + React + Docker.
+            Stack principal: PHP/Laravel + Go + React + Docker, com vivência em APIs REST, MySQL, Oracle e sistemas corporativos.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -444,7 +492,7 @@ function Hero() {
               Ver Projetos
               <ArrowDown size={18} />
             </a>
-            <a href="/victor-brutti-cv.txt" download className="inline-flex items-center gap-2 rounded-xl border border-lime-300/30 bg-lime-300/10 px-5 py-3 text-sm font-bold text-lime-50 transition hover:scale-105 hover:shadow-[0_0_24px_rgba(163,230,53,0.22)]">
+            <a href="/curriculo_victorbrutti.pdf" download className="inline-flex items-center gap-2 rounded-xl border border-lime-300/30 bg-lime-300/10 px-5 py-3 text-sm font-bold text-lime-50 transition hover:scale-105 hover:shadow-[0_0_24px_rgba(163,230,53,0.22)]">
               <Download size={18} />
               Baixar CV
             </a>
@@ -511,8 +559,9 @@ export default function Home() {
             <Code2 className="mb-5 text-cyanGlow" size={40} />
             <p className="text-lg leading-8 text-slate-200">
               Desenvolvedor Full Stack apaixonado por criar soluções reais, com foco em backend robusto,
-              sistemas escaláveis e interfaces que parecem produto pronto. Curioso, autodidata e sempre
-              evoluindo, com uma queda particular por Go, PHP, React e Docker.
+              sistemas escaláveis e interfaces que parecem produto pronto. Experiência prática com PHP,
+              Laravel, CodeIgniter, APIs REST, Swagger/OpenAPI, Docker, MySQL e Oracle. Curioso, autodidata
+              e sempre evoluindo, com uma queda particular por Go, PHP, React e Docker.
             </p>
             <div className="mt-7 grid gap-3 sm:grid-cols-3">
               {["Backend forte", "Produto real", "Evolução constante"].map((item) => (
@@ -579,7 +628,7 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section id="experiencia" eyebrow="Experiência" title="Da API ao painel, pensando no fluxo completo.">
+      <Section id="experiencia" eyebrow="Experiência" title="Vivência real em sistemas corporativos.">
         <div className="relative ml-3 border-l border-cyan-300/30 pl-8">
           <div className="absolute -left-px top-0 h-full w-px bg-gradient-to-b from-cyanGlow via-violetGlow to-transparent shadow-neon" />
           {timeline.map((item, index) => (
@@ -615,7 +664,55 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section id="projetos" eyebrow="Projetos pessoais" title="Projetos reais, com cara de produto.">
+      <Section id="formacao" eyebrow="Formação" title="Base acadêmica e técnica em evolução constante.">
+        <div className="grid gap-5 md:grid-cols-2">
+          {education.map((item, index) => (
+            <motion.article
+              key={item.title}
+              className="glass rounded-2xl p-6"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08 }}
+              whileHover={{ scale: 1.025 }}
+            >
+              <div className="mb-5 flex items-center justify-between gap-4">
+                <div className="grid h-12 w-12 place-items-center rounded-xl border border-cyan-300/20 bg-cyan-300/10">
+                  <BriefcaseBusiness className="text-cyanGlow" size={24} />
+                </div>
+                <span className="rounded-full border border-lime-300/20 bg-lime-300/10 px-3 py-1 text-xs font-bold text-lime-100">
+                  {item.status}
+                </span>
+              </div>
+              <h3 className="text-2xl font-black text-white">{item.title}</h3>
+              <p className="mt-2 text-sm font-semibold text-cyan-100">{item.place}</p>
+              <p className="mt-3 text-sm text-slate-300">{item.period}</p>
+            </motion.article>
+          ))}
+        </div>
+      </Section>
+
+      <Section id="projetos" eyebrow="Projetos relevantes" title="Projetos reais, com cara de produto.">
+        <div className="mb-8 grid gap-4 lg:grid-cols-3">
+          {corporateProjects.map((project, index) => (
+            <motion.article
+              key={project.title}
+              className="glass rounded-2xl p-5"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.07 }}
+              whileHover={{ scale: 1.03, y: -4 }}
+            >
+              <div className="mb-4 inline-grid h-11 w-11 place-items-center rounded-xl border border-violet-300/20 bg-violet-300/10">
+                <Coffee className="text-violet-100" size={22} />
+              </div>
+              <h3 className="text-lg font-black text-white">{project.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-slate-300">{project.description}</p>
+              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-cyan-100">{project.stack}</p>
+            </motion.article>
+          ))}
+        </div>
         <div className="grid gap-6 lg:grid-cols-2">
           {projects.map((project, index) => (
             <motion.article
