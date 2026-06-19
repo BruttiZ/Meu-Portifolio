@@ -19,6 +19,11 @@ export const metadata: Metadata = {
     "Laravel"
   ],
   authors: [{ name: "Victor Brutti" }],
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg"
+  },
   openGraph: {
     title: "Victor Brutti | Full Stack Developer",
     description:
