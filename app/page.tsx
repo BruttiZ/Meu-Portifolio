@@ -361,6 +361,34 @@ function Header({
   setLightMode: (value: boolean) => void;
 }) {
   const [open, setOpen] = useState(false);
+  const [activeHref, setActiveHref] = useState(navItems[0][1]);
+
+  useEffect(() => {
+    const updateActiveSection = () => {
+      let currentHref = navItems[0][1];
+
+      for (const [, href] of navItems) {
+        const section = document.querySelector(href);
+        if (!section) continue;
+
+        const { top } = section.getBoundingClientRect();
+        if (top <= 140) {
+          currentHref = href;
+        }
+      }
+
+      setActiveHref(currentHref);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
+  }, []);
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-black/30 backdrop-blur-xl">
@@ -382,7 +410,13 @@ function Header({
             <a
               key={href}
               href={href}
-              className="rounded-full px-4 py-2 text-sm text-slate-300 transition hover:bg-cyan-300/10 hover:text-white"
+              onClick={() => setActiveHref(href)}
+              aria-current={activeHref === href ? "page" : undefined}
+              className={`rounded-full px-4 py-2 text-sm transition ${
+                activeHref === href
+                  ? "bg-cyan-300/20 text-cyan-50 shadow-[0_0_22px_rgba(34,211,238,0.22)]"
+                  : "text-slate-300 hover:bg-cyan-300/10 hover:text-white"
+              }`}
             >
               {label}
             </a>
@@ -417,8 +451,16 @@ function Header({
             <a
               key={href}
               href={href}
-              onClick={() => setOpen(false)}
-              className="block rounded-lg px-4 py-3 text-sm text-slate-200 hover:bg-cyan-300/10"
+              onClick={() => {
+                setActiveHref(href);
+                setOpen(false);
+              }}
+              aria-current={activeHref === href ? "page" : undefined}
+              className={`block rounded-lg px-4 py-3 text-sm transition ${
+                activeHref === href
+                  ? "bg-cyan-300/20 text-cyan-50 shadow-[0_0_18px_rgba(34,211,238,0.18)]"
+                  : "text-slate-200 hover:bg-cyan-300/10"
+              }`}
             >
               {label}
             </a>

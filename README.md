@@ -13,7 +13,7 @@ npm run dev
 
 ### Desenvolvimento com hot reload
 
-Use este modo enquanto estiver editando o site. As alterações nos arquivos são refletidas automaticamente, sem rebuild da imagem:
+Use este modo enquanto estiver editando o site. As alterações nos arquivos são refletidas automaticamente, sem rebuild da imagem e sem reiniciar o container:
 
 ```bash
 docker compose up
@@ -30,6 +30,8 @@ Se mudar dependências no `package.json`, rode:
 ```bash
 docker compose up --build
 ```
+
+Evite usar `docker build` + `docker run` durante o desenvolvimento. Esse modo é de produção e serve uma versão fechada do build.
 
 ### Produção
 
