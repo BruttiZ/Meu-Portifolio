@@ -11,6 +11,28 @@ npm run dev
 
 ## Docker
 
+### Desenvolvimento com hot reload
+
+Use este modo enquanto estiver editando o site. As alterações nos arquivos são refletidas automaticamente, sem rebuild da imagem:
+
+```bash
+docker compose up
+```
+
+Abra:
+
+```text
+http://localhost:3001
+```
+
+Se mudar dependências no `package.json`, rode:
+
+```bash
+docker compose up --build
+```
+
+### Produção
+
 ```bash
 docker build -t victor-brutti-portfolio .
 docker run --rm -p 3001:3000 victor-brutti-portfolio
