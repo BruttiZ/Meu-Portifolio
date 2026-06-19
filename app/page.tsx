@@ -401,7 +401,7 @@ function Header({
             VB
           </span>
           <span className="hidden text-sm uppercase tracking-[0.22em] text-slate-200 sm:inline">
-            Victor Brutti
+            Victor Calegari Brutti
           </span>
         </a>
 
@@ -614,8 +614,8 @@ function Hero() {
               <span className="text-lime-200">&quot;real systems&quot;</span>,
             </p>
             <p className="pl-4">
-              backend: [<span className="text-lime-200">&quot;Go&quot;</span>,{" "}
-              <span className="text-lime-200">&quot;PHP&quot;</span>],
+              backend: [<span className="text-lime-200">&quot;PHP&quot;</span>,{" "}
+              <span className="text-lime-200">&quot;Go&quot;</span>],
             </p>
             <p className="pl-4">
               frontend: [
@@ -1031,7 +1031,7 @@ export default function Home() {
               </a>
             ))}
           </div>
-          <p>© {new Date().getFullYear()} Victor Brutti.</p>
+          <p>© {new Date().getFullYear()} BruttiZ Dev.</p>
         </div>
       </footer>
     </main>
