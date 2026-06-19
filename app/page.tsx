@@ -112,7 +112,7 @@ const timeline = [
     ],
   },
   {
-    title: "Analista de Desenvolvimento",
+    title: "Analista",
     company: "Aegea Corsan - Passo-Fundo/RS",
     period: "Nível Analista | Contrato PJ",
     items: [
