@@ -93,7 +93,7 @@ const projects = [
     summary:
       "API modular para autenticação, eventos, convidados, RSVP, dashboard, analytics, orçamento, presentes e lembretes de e-mail, com rotas protegidas por Bearer token.",
     metric: "Backend Go",
-    repo: "https://github.com/BruttiZ/invitely-api",
+    repo: "https://github.com/BruttiZ/InvitelyAPI",
     visual: "REST API, auth, tenants, analytics e operação de eventos",
   },
 ];
