@@ -84,7 +84,7 @@ const projects = [
       "Plataforma SaaS-ready para criação de eventos, convites digitais, RSVP público, check-in por QR Code, dashboard operacional e proxy controlado para uma API Go complementar.",
     metric: "Produto full stack",
     repo: "https://github.com/BruttiZ/ConviteEventos",
-    demo: "#contato",
+    demo: "https://convite-eventos.vercel.app/",
     visual: "Eventos, RSVP, QR Code, dashboard e convites digitais",
   },
   {
