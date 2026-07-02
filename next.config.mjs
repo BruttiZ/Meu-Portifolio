@@ -2,6 +2,9 @@
 const nextConfig = {
   output: "standalone",
   reactStrictMode: true,
+  outputFileTracingIncludes: {
+    "/api/chat": ["./knowledge/**/*.md"]
+  },
   images: {
     remotePatterns: [
       {

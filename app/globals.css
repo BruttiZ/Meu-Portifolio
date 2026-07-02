@@ -224,7 +224,7 @@ body {
 }
 
 .diary-form textarea::placeholder { color: rgba(48, 25, 20, .68); opacity: 1; }
-.diary-form > div {
+.diary-form-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -234,7 +234,7 @@ body {
 }
 .diary-form small { color: rgba(42, 22, 18, .75); font-size: .68rem; font-weight: 700; }
 
-.diary-form button {
+.diary-form-footer button {
   display: inline-flex;
   align-items: center;
   gap: .45rem;
@@ -250,8 +250,30 @@ body {
   transition: .2s ease;
 }
 
-.diary-form button:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(76, 43, 77, .18); }
-.diary-form button:disabled { cursor: not-allowed; opacity: .35; }
+.diary-form-footer button:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(76, 43, 77, .18); }
+.diary-form-footer button:disabled { cursor: not-allowed; opacity: .35; }
+
+.diary-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .38rem;
+  margin: .2rem 0 .35rem;
+}
+
+.diary-suggestions button {
+  border: 1px solid rgba(61, 34, 29, .2);
+  border-radius: 999px;
+  background: rgba(255, 248, 219, .16);
+  padding: .32rem .62rem;
+  color: rgba(40, 20, 16, .82);
+  font: 700 .62rem/1.2 ui-sans-serif, system-ui, sans-serif;
+  transition: background .2s, transform .2s;
+}
+
+.diary-suggestions button:hover {
+  transform: translateY(-1px);
+  background: rgba(83, 42, 77, .12);
+}
 
 .diary-ink {
   width: 88%;
@@ -386,7 +408,9 @@ body {
   .diary-form label { font-size: .95rem; }
   .diary-form textarea { padding: .35rem .15rem; font-size: .9rem; line-height: 1.45rem; background: transparent; }
   .diary-form small { max-width: 52%; font-size: .58rem; }
-  .diary-form button { padding: .45rem .65rem; font-size: .62rem; }
+  .diary-form-footer button { padding: .45rem .65rem; font-size: .62rem; }
+  .diary-suggestions { max-height: 3.3rem; overflow: hidden; }
+  .diary-suggestions button { font-size: .55rem; }
   .diary-ink { width: 100%; font-size: .88rem; line-height: 1.45; }
   .diary-note { margin-top: 4.5rem; text-align: center; }
 }

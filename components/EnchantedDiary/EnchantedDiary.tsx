@@ -14,7 +14,24 @@ type Phase =
   | "resting"
   | "fading-answer";
 
+type ConversationTurn = {
+  role: "visitor" | "diary";
+  text: string;
+};
+
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const welcomeMessages = [
+  "Há muito tempo estas páginas aguardavam um novo visitante.",
+  "As páginas despertam lentamente, como se reconhecessem sua presença.",
+  "Nem toda história começa pela primeira página. Escolha um capítulo.",
+];
+
+const initialSuggestions = [
+  "Quem é Victor Brutti?",
+  "Quais são os principais projetos?",
+  "Onde Victor trabalha atualmente?",
+];
 
 function useTypewriter() {
   const [text, setText] = useState("");
@@ -72,6 +89,9 @@ export function EnchantedDiary() {
   const [phase, setPhase] = useState<Phase>("opening");
   const [question, setQuestion] = useState("");
   const [muted, setMuted] = useState(true);
+  const [history, setHistory] = useState<ConversationTurn[]>([]);
+  const [suggestions, setSuggestions] = useState(initialSuggestions);
+  const [welcome, setWelcome] = useState(welcomeMessages[0]);
   const { text, write, clear } = useTypewriter();
   const audioContext = useRef<AudioContext | null>(null);
   const answerTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -98,6 +118,9 @@ export function EnchantedDiary() {
   );
 
   useEffect(() => {
+    setWelcome(
+      welcomeMessages[Math.floor(Math.random() * welcomeMessages.length)],
+    );
     const timer = setTimeout(
       () => setPhase("ready"),
       reducedMotion ? 200 : 2600,
@@ -128,7 +151,7 @@ export function EnchantedDiary() {
     const answerRequest = fetch("/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: prompt }),
+      body: JSON.stringify({ message: prompt, history }),
     });
 
     setPhase("writing-question");
@@ -145,11 +168,20 @@ export function EnchantedDiary() {
       const data = (await response.json()) as {
         answer?: string;
         error?: string;
+        suggestions?: string[];
       };
       const answer =
         data.answer ??
         data.error ??
         "Estas páginas ainda não registraram essa informação.";
+      setHistory((current) =>
+        [
+          ...current,
+          { role: "visitor" as const, text: prompt },
+          { role: "diary" as const, text: answer },
+        ].slice(-4),
+      );
+      if (data.suggestions?.length) setSuggestions(data.suggestions.slice(0, 3));
       setPhase("answering");
       chime(660, 0.18);
       await write(answer, reducedMotion ? 1 : 25);
@@ -222,7 +254,7 @@ export function EnchantedDiary() {
                 exit={{ opacity: 0 }}
               >
                 <Feather />
-                <p>As páginas estão despertando...</p>
+                <p>{welcome}</p>
               </motion.div>
             ) : phase === "ready" ? (
               <motion.form
@@ -255,7 +287,18 @@ export function EnchantedDiary() {
                   rows={7}
                   autoFocus
                 />
-                <div>
+                <div className="diary-suggestions" aria-label="Capítulos sugeridos">
+                  {suggestions.map((suggestion) => (
+                    <button
+                      key={suggestion}
+                      type="button"
+                      onClick={() => setQuestion(suggestion)}
+                    >
+                      {suggestion}
+                    </button>
+                  ))}
+                </div>
+                <div className="diary-form-footer">
                   <small>
                     Enter para perguntar · Shift + Enter para nova linha ·{" "}
                     {question.length}/600
