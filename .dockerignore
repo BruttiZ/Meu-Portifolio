@@ -1,9 +1,6 @@
-.next
 node_modules
-.npm-cache
-npm-debug.log
-Dockerfile
+.next
 .git
 .env
-.env*
-README.md
+.env*.local
+npm-debug.log*

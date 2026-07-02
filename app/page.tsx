@@ -37,6 +37,7 @@ import {
   SiSwagger,
   SiTypescript,
 } from "react-icons/si";
+import { EnchantedDiary } from "@/components/EnchantedDiary/EnchantedDiary";
 
 const githubUser = "BruttiZ";
 
@@ -50,6 +51,7 @@ const links = {
 const navItems = [
   ["Sobre", "#sobre"],
   ["Skills", "#skills"],
+  ["Diário", "#diario"],
   ["Experiência", "#experiencia"],
   ["Formação", "#formacao"],
   ["Projetos", "#projetos"],
@@ -775,6 +777,8 @@ export default function Home() {
           })}
         </div>
       </Section>
+
+      <EnchantedDiary />
 
       <Section
         id="experiencia"
